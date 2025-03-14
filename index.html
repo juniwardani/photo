@@ -290,164 +290,290 @@ footer {
     </footer>
 
     <script>
-        // Data ustadz/ustadzah
-const teachers = [
-    { name: 'Ustadz Bahaudin', image: 'photo/Ustadz Bahaudin.jpg' },
-    { name: 'Ustadz Hadi', image: 'photo/Ustadz Hadi.jpg' },
-    { name: 'Ustadz Haidir', image: 'photo/Ustadz Haidir.jpg' },
-    { name: 'Ustadz Hasby', image: 'photo/Ustadz Hasby.jpg' },
-    { name: 'Ustadz Hussaini', image: 'photo/Ustadz Hussaini.jpg' },
-    { name: 'Ustadz Jufri', image: 'photo/Ustadz Jufri.jpg' },
-    { name: 'Ustadz Musawir', image: 'photo/Ustadz Musawir.jpg' },
-    { name: 'Ustadz Nyudi', image: 'photo/Ustadz Nyudi.jpg' },
-    { name: 'Ustadz Rahim', image: 'photo/Ustadz Rahim.jpg' },
-    { name: 'Ustadz Ridani', image: 'photo/Ustadz Ridani.jpg' },
-    { name: 'Ustadz Salim', image: 'photo/Ustadz Salim.jpg' },
-    { name: 'Ustadz Sofyan', image: 'photo/Ustadz Sofyan.jpg' },
-    { name: 'Ustadz Syarif', image: 'photo/Ustadz Syarif.jpg' },
-    { name: 'Ustadz Tahmid', image: 'photo/Ustadz Tahmid.jpg' },
-    { name: 'Ustadz Thohir', image: 'photo/Ustadz Thohir.jpg' },
-    { name: 'Ustadz Umam', image: 'photo/Ustadz Umam.jpg' },
-    { name: 'Ustadzah Aini', image: 'photo/Ustadzah Aini.jpg' },
-    { name: 'Ustadzah Ainiah', image: 'photo/Ustadzah Ainiah.jpg' },
-    { name: 'Ustadzah Astrid', image: 'photo/Ustadzah Astrid.jpg' },
-    { name: 'Ustadzah Basriah', image: 'photo/Ustadzah Basriah.jpg' },
-    { name: 'Ustadzah Belqish', image: 'photo/Ustadzah Belqish.jpg' },
-    { name: 'Ustadzah Diah', image: 'photo/Ustadzah Diah.jpg' },
-    { name: 'Ustadzah Dinda', image: 'photo/Ustadzah Dinda.jpg' },
-    { name: 'Ustadzah Evi', image: 'photo/Ustadzah Evi.jpg' },
-    { name: 'Ustadzah Fitria', image: 'photo/Ustadzah Fitria.jpg' },
-    { name: 'Ustadzah Icha', image: 'photo/Ustadzah Icha.jpg' },
-    { name: 'Ustadzah Nisa', image: 'photo/Ustadzah Nisa.jpg' },
-    { name: 'Ustadzah Risda', image: 'photo/Ustadzah Risda.jpg' },
-    { name: 'Ustadzah Sanah', image: 'photo/Ustadzah Sanah.jpg' },
-    { name: 'Ustadzah Shalatiyah', image: 'photo/Ustadzah Shalatiyah.jpg' }
+        // Modifikasi data teachers untuk menyertakan path compressed dan original
+        const teachers = [
+    { 
+        name: 'Ustadz Bahaudin', 
+        previewImage: 'compressed/Ustadz Bahaudin.jpg',
+        downloadImage: 'photo/Ustadz Bahaudin.jpg'
+    },
+    { 
+        name: 'Ustadz Hadi', 
+        previewImage: 'compressed/Ustadz Hadi.jpg',
+        downloadImage: 'photo/Ustadz Hadi.jpg'
+    },
+    { 
+        name: 'Ustadz Haidir', 
+        previewImage: 'compressed/Ustadz Haidir.jpg',
+        downloadImage: 'photo/Ustadz Haidir.jpg'
+    },
+    { 
+        name: 'Ustadz Hasby', 
+        previewImage: 'compressed/Ustadz Hasby.jpg',
+        downloadImage: 'photo/Ustadz Hasby.jpg' 
+    },
+    { 
+        name: 'Ustadz Hussaini', 
+        previewImage: 'compressed/Ustadz Hussaini.jpg',
+        downloadImage: 'photo/Ustadz Hussaini.jpg' 
+    },
+    { 
+        name: 'Ustadz Jufri', 
+        previewImage: 'compressed/Ustadz Jufri.jpg',
+        downloadImage: 'photo/Ustadz Jufri.jpg' 
+    },
+    { 
+        name: 'Ustadz Musawir', 
+        previewImage: 'compressed/Ustadz Musawir.jpg',
+        downloadImage: 'photo/Ustadz Musawir.jpg' 
+    },
+    { 
+        name: 'Ustadz Nyudi', 
+        previewImage: 'compressed/Ustadz Nyudi.jpg',
+        downloadImage: 'photo/Ustadz Nyudi.jpg' 
+    },
+    { 
+        name: 'Ustadz Rahim', 
+        previewImage: 'compressed/Ustadz Rahim.jpg',
+        downloadImage: 'photo/Ustadz Rahim.jpg' 
+    },
+    { 
+        name: 'Ustadz Ridani', 
+        previewImage: 'compressed/Ustadz Ridani.jpg',
+        downloadImage: 'photo/Ustadz Ridani.jpg' 
+    },
+    { 
+        name: 'Ustadz Salim', 
+        previewImage: 'compressed/Ustadz Salim.jpg',
+        downloadImage: 'photo/Ustadz Salim.jpg' 
+    },
+    { 
+        name: 'Ustadz Sofyan', 
+        previewImage: 'compressed/Ustadz Sofyan.jpg',
+        downloadImage: 'photo/Ustadz Sofyan.jpg' 
+    },
+    { 
+        name: 'Ustadz Syarif', 
+        previewImage: 'compressed/Ustadz Syarif.jpg',
+        downloadImage: 'photo/Ustadz Syarif.jpg' 
+    },
+    { 
+        name: 'Ustadz Tahmid', 
+        previewImage: 'compressed/Ustadz Tahmid.jpg',
+        downloadImage: 'photo/Ustadz Tahmid.jpg' 
+    },
+    { 
+        name: 'Ustadz Thohir', 
+        previewImage: 'compressed/Ustadz Thohir.jpg',
+        downloadImage: 'photo/Ustadz Thohir.jpg' 
+    },
+    { 
+        name: 'Ustadz Umam', 
+        previewImage: 'compressed/Ustadz Umam.jpg',
+        downloadImage: 'photo/Ustadz Umam.jpg' 
+    },
+    { 
+        name: 'Ustadzah Aini', 
+        previewImage: 'compressed/Ustadzah Aini.jpg',
+        downloadImage: 'photo/Ustadzah Aini.jpg' 
+    },
+    { 
+        name: 'Ustadzah Ainiah', 
+        previewImage: 'compressed/Ustadzah Ainiah.jpg',
+        downloadImage: 'photo/Ustadzah Ainiah.jpg' 
+    },
+    { 
+        name: 'Ustadzah Astrid', 
+        previewImage: 'compressed/Ustadzah Astrid.jpg',
+        downloadImage: 'photo/Ustadzah Astrid.jpg' 
+    },
+    { 
+        name: 'Ustadzah Basriah', 
+        previewImage: 'compressed/Ustadzah Basriah.jpg',
+        downloadImage: 'photo/Ustadzah Basriah.jpg' 
+    },
+    { 
+        name: 'Ustadzah Belqish', 
+        previewImage: 'compressed/Ustadzah Belqish.jpg',
+        downloadImage: 'photo/Ustadzah Belqish.jpg' 
+    },
+    { 
+        name: 'Ustadzah Diah', 
+        previewImage: 'compressed/Ustadzah Diah.jpg',
+        downloadImage: 'photo/Ustadzah Diah.jpg' 
+    },
+    { 
+        name: 'Ustadzah Dinda', 
+        previewImage: 'compressed/Ustadzah Dinda.jpg',
+        downloadImage: 'photo/Ustadzah Dinda.jpg' 
+    },
+    { 
+        name: 'Ustadzah Evi', 
+        previewImage: 'compressed/Ustadzah Evi.jpg',
+        downloadImage: 'photo/Ustadzah Evi.jpg' 
+    },
+    { 
+        name: 'Ustadzah Fitria', 
+        previewImage: 'compressed/Ustadzah Fitria.jpg',
+        downloadImage: 'photo/Ustadzah Fitria.jpg' 
+    },
+    { 
+        name: 'Ustadzah Icha', 
+        previewImage: 'compressed/Ustadzah Icha.jpg',
+        downloadImage: 'photo/Ustadzah Icha.jpg' 
+    },
+    { 
+        name: 'Ustadzah Nisa', 
+        previewImage: 'compressed/Ustadzah Nisa.jpg',
+        downloadImage: 'photo/Ustadzah Nisa.jpg' 
+    },
+    { 
+        name: 'Ustadzah Risda', 
+        previewImage: 'compressed/Ustadzah Risda.jpg',
+        downloadImage: 'photo/Ustadzah Risda.jpg' 
+    },
+    { 
+        name: 'Ustadzah Sanah', 
+        previewImage: 'compressed/Ustadzah Sanah.jpg',
+        downloadImage: 'photo/Ustadzah Sanah.jpg' 
+    },
+    { 
+        name: 'Ustadzah Shalatiyah', 
+        previewImage: 'compressed/Ustadzah Shalatiyah.jpg',
+        downloadImage: 'photo/Ustadzah Shalatiyah.jpg' 
+    }
 ];
 
-// Elements
-const photoGrid = document.getElementById('photoGrid');
-const modal = document.getElementById('photoModal');
-const modalImg = document.getElementById('modalImage');
-const modalName = document.getElementById('modalName');
-const closeBtn = document.querySelector('.close');
-const downloadBtn = document.getElementById('downloadBtn');
 
-// Create photo grid
-function createPhotoGrid() {
-    teachers.forEach((teacher, index) => {
-        const photoItem = document.createElement('div');
-        photoItem.className = 'photo-item';
-        
-        photoItem.innerHTML = `
-            <h3>📸 ${teacher.name}</h3>
-        `;
-        
-        photoItem.addEventListener('click', () => openModal(teacher));
-        photoGrid.appendChild(photoItem);
-    });
-}
+        // Elements
+        const photoGrid = document.getElementById('photoGrid');
+        const modal = document.getElementById('photoModal');
+        const modalImg = document.getElementById('modalImage');
+        const modalName = document.getElementById('modalName');
+        const closeBtn = document.querySelector('.close');
+        const downloadBtn = document.getElementById('downloadBtn');
 
-// Menambahkan fungsi drag scroll untuk gambar
-let isScrolling = false;
-let startY;
-let scrollTop;
+        // Create photo grid
+        function createPhotoGrid() {
+            teachers.forEach((teacher, index) => {
+                const photoItem = document.createElement('div');
+                photoItem.className = 'photo-item';
+                
+                photoItem.innerHTML = `
+                    <h3>📸 ${teacher.name}</h3>
+                `;
+                
+                photoItem.addEventListener('click', () => openModal(teacher));
+                photoGrid.appendChild(photoItem);
+            });
+        }
 
-function handleDragStart(e) {
-    isScrolling = true;
-    startY = e.pageY - modalImageContainer.offsetTop;
-    scrollTop = modalImageContainer.scrollTop;
-}
+        // Menambahkan fungsi drag scroll untuk gambar
+        let isScrolling = false;
+        let startY;
+        let scrollTop;
 
-function handleDragEnd() {
-    isScrolling = false;
-}
+        function handleDragStart(e) {
+            isScrolling = true;
+            startY = e.pageY - modalImageContainer.offsetTop;
+            scrollTop = modalImageContainer.scrollTop;
+        }
 
-function handleDragMove(e) {
-    if (!isScrolling) return;
-    
-    e.preventDefault();
-    const y = e.pageY - modalImageContainer.offsetTop;
-    const walk = (y - startY) * 2; // Scroll lebih cepat
-    modalImageContainer.scrollTop = scrollTop - walk;
-}
+        function handleDragEnd() {
+            isScrolling = false;
+        }
 
-// Tambahkan setelah definisi elements
-const modalImageContainer = document.querySelector('.modal-image-container');
+        function handleDragMove(e) {
+            if (!isScrolling) return;
+            
+            e.preventDefault();
+            const y = e.pageY - modalImageContainer.offsetTop;
+            const walk = (y - startY) * 2; // Scroll lebih cepat
+            modalImageContainer.scrollTop = scrollTop - walk;
+        }
 
-// Tambahkan event listeners untuk drag scroll
-modalImageContainer.addEventListener('mousedown', handleDragStart);
-document.addEventListener('mousemove', handleDragMove);
-document.addEventListener('mouseup', handleDragEnd);
+        // Tambahkan setelah definisi elements
+        const modalImageContainer = document.querySelector('.modal-image-container');
 
-// Tambahkan touch support untuk mobile
-modalImageContainer.addEventListener('touchstart', (e) => {
-    const touch = e.touches[0];
-    handleDragStart(touch);
-});
+        // Tambahkan event listeners untuk drag scroll
+        modalImageContainer.addEventListener('mousedown', handleDragStart);
+        document.addEventListener('mousemove', handleDragMove);
+        document.addEventListener('mouseup', handleDragEnd);
 
-modalImageContainer.addEventListener('touchmove', (e) => {
-    const touch = e.touches[0];
-    handleDragMove(touch);
-});
+        // Tambahkan touch support untuk mobile
+        modalImageContainer.addEventListener('touchstart', (e) => {
+            const touch = e.touches[0];
+            handleDragStart(touch);
+        });
 
-modalImageContainer.addEventListener('touchend', handleDragEnd);
+        modalImageContainer.addEventListener('touchmove', (e) => {
+            const touch = e.touches[0];
+            handleDragMove(touch);
+        });
 
-// Modifikasi fungsi openModal
-function openModal(teacher) {
-    // Tampilkan modal dengan loading state
-    modal.style.display = 'block';
-    modalImg.style.display = 'none';
-    modalName.textContent = teacher.name;
-    modalImageContainer.classList.add('loading');
-    modalImageContainer.scrollTop = 0;
-    
-    // Force browser untuk me-reload gambar baru
-    const timestamp = new Date().getTime();
-    const imageUrl = `${teacher.image}?t=${timestamp}`;
-    
-    // Buat Image object baru untuk memastikan loading gambar yang benar
-    const newImage = new Image();
-    newImage.onload = function() {
-        modalImg.src = imageUrl;
-        modalImg.style.display = 'block';
-        modalImageContainer.classList.remove('loading');
-        downloadBtn.setAttribute('href', teacher.image);
-        downloadBtn.setAttribute('download', `${teacher.name}.jpg`);
-    };
-    
-    newImage.onerror = function() {
-        modalImg.src = `https://via.placeholder.com/400x400?text=${encodeURIComponent(teacher.name)}`;
-        modalImg.style.display = 'block';
-        modalImageContainer.classList.remove('loading');
-        modalName.textContent = teacher.name + ' (Foto tidak tersedia)';
-    };
-    
-    // Mulai loading gambar baru
-    newImage.src = imageUrl;
-}
+        modalImageContainer.addEventListener('touchend', handleDragEnd);
 
-// Modifikasi event listener untuk tombol close
-closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-    modalImg.src = '';
-    modalName.textContent = '';
-    modalImageContainer.classList.remove('loading');
-    modalImageContainer.scrollTop = 0;
-});
+        // Modifikasi fungsi openModal
+        function openModal(teacher) {
+            // Tampilkan modal dengan loading state
+            modal.style.display = 'block';
+            modalImg.style.display = 'none';
+            modalName.textContent = teacher.name;
+            modalImageContainer.classList.add('loading');
+            modalImageContainer.scrollTop = 0;
+            
+            // Gunakan gambar compressed untuk preview
+            const timestamp = new Date().getTime();
+            const previewUrl = `${teacher.previewImage}?t=${timestamp}`;
+            
+            const newImage = new Image();
+            newImage.onload = function() {
+                modalImg.src = previewUrl;
+                modalImg.style.display = 'block';
+                modalImageContainer.classList.remove('loading');
+                // Gunakan gambar original untuk download
+                downloadBtn.setAttribute('href', teacher.downloadImage);
+                downloadBtn.setAttribute('download', `${teacher.name}.jpg`);
+            };
+            
+            newImage.onerror = function() {
+                // Jika gambar compressed gagal, coba gambar original
+                modalImg.src = teacher.downloadImage;
+                modalImg.onerror = function() {
+                    // Jika keduanya gagal, gunakan placeholder
+                    modalImg.src = `https://via.placeholder.com/400x400?text=${encodeURIComponent(teacher.name)}`;
+                    modalName.textContent = teacher.name + ' (Foto tidak tersedia)';
+                };
+                modalImg.style.display = 'block';
+                modalImageContainer.classList.remove('loading');
+            };
+            
+            // Mulai loading gambar compressed
+            newImage.src = previewUrl;
+        }
 
-// Modifikasi event listener untuk click outside
-window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.style.display = 'none';
-        modalImg.src = '';
-        modalName.textContent = '';
-        modalImageContainer.classList.remove('loading');
-        modalImageContainer.scrollTop = 0;
-    }
-});
+        // Modifikasi event listener untuk tombol close
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+            modalImg.src = '';
+            modalName.textContent = '';
+            modalImageContainer.classList.remove('loading');
+            modalImageContainer.scrollTop = 0;
+        });
 
-// Initialize
-document.addEventListener('DOMContentLoaded', createPhotoGrid);
+        // Modifikasi event listener untuk click outside
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                modalImg.src = '';
+                modalName.textContent = '';
+                modalImageContainer.classList.remove('loading');
+                modalImageContainer.scrollTop = 0;
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', createPhotoGrid);
     </script>
 </body>
 </html> 
