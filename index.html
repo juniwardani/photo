@@ -222,6 +222,39 @@ footer {
         width: 95%;
     }
 }
+
+/* Tambahkan CSS untuk loading spinner */
+.loading-spinner {
+    display: none;
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Style untuk container gambar saat loading */
+.loading .modal-image-container {
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading #modalImage {
+    display: none;
+}
+
+.loading .loading-spinner {
+    display: block;
+}
 </style>
 <body>
     <header>
@@ -241,6 +274,7 @@ footer {
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <div class="modal-image-container">
+                    <div class="loading-spinner"></div>
                     <img id="modalImage" src="" alt="">
                 </div>
                 <h3 id="modalName"></h3>
@@ -360,10 +394,11 @@ modalImageContainer.addEventListener('touchend', handleDragEnd);
 
 // Modifikasi fungsi openModal
 function openModal(teacher) {
-    // Reset modal dan hapus cache gambar sebelumnya
-    modal.style.display = 'none';
-    modalImg.src = '';
-    modalName.textContent = '';
+    // Tampilkan modal dengan loading state
+    modal.style.display = 'block';
+    modalImg.style.display = 'none';
+    modalName.textContent = teacher.name;
+    modalImageContainer.classList.add('loading');
     modalImageContainer.scrollTop = 0;
     
     // Force browser untuk me-reload gambar baru
@@ -373,16 +408,17 @@ function openModal(teacher) {
     // Buat Image object baru untuk memastikan loading gambar yang benar
     const newImage = new Image();
     newImage.onload = function() {
-        modal.style.display = 'block';
         modalImg.src = imageUrl;
-        modalName.textContent = teacher.name;
+        modalImg.style.display = 'block';
+        modalImageContainer.classList.remove('loading');
         downloadBtn.setAttribute('href', teacher.image);
         downloadBtn.setAttribute('download', `${teacher.name}.jpg`);
     };
     
     newImage.onerror = function() {
-        modal.style.display = 'block';
         modalImg.src = `https://via.placeholder.com/400x400?text=${encodeURIComponent(teacher.name)}`;
+        modalImg.style.display = 'block';
+        modalImageContainer.classList.remove('loading');
         modalName.textContent = teacher.name + ' (Foto tidak tersedia)';
     };
     
@@ -393,8 +429,9 @@ function openModal(teacher) {
 // Modifikasi event listener untuk tombol close
 closeBtn.addEventListener('click', () => {
     modal.style.display = 'none';
-    modalImg.src = ''; // Clear image source
+    modalImg.src = '';
     modalName.textContent = '';
+    modalImageContainer.classList.remove('loading');
     modalImageContainer.scrollTop = 0;
 });
 
@@ -402,8 +439,9 @@ closeBtn.addEventListener('click', () => {
 window.addEventListener('click', (e) => {
     if (e.target === modal) {
         modal.style.display = 'none';
-        modalImg.src = ''; // Clear image source
+        modalImg.src = '';
         modalName.textContent = '';
+        modalImageContainer.classList.remove('loading');
         modalImageContainer.scrollTop = 0;
     }
 });
