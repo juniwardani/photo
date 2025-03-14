@@ -358,26 +358,51 @@ modalImageContainer.addEventListener('touchmove', (e) => {
 
 modalImageContainer.addEventListener('touchend', handleDragEnd);
 
-// Modifikasi fungsi openModal untuk memastikan scroll reset
+// Modifikasi fungsi openModal
 function openModal(teacher) {
-    modal.style.display = 'block';
-    modalImg.src = teacher.image;
-    modalName.textContent = teacher.name;
-    modalImageContainer.scrollTop = 0; // Reset scroll position
+    // Reset modal terlebih dahulu
+    modalImg.src = '';
+    modalName.textContent = '';
+    modalImageContainer.scrollTop = 0;
     
-    downloadBtn.setAttribute('href', teacher.image);
-    downloadBtn.setAttribute('download', `${teacher.name}.jpg`);
+    // Tunggu sebentar untuk memastikan reset selesai
+    setTimeout(() => {
+        modal.style.display = 'block';
+        
+        // Load gambar baru
+        modalImg.src = teacher.image;
+        modalImg.onload = function() {
+            // Setelah gambar selesai dimuat
+            modalName.textContent = teacher.name;
+            downloadBtn.setAttribute('href', teacher.image);
+            downloadBtn.setAttribute('download', `${teacher.name}.jpg`);
+        };
+        
+        modalImg.onerror = function() {
+            // Jika gambar gagal dimuat
+            modalImg.src = `https://via.placeholder.com/400x400?text=${encodeURIComponent(teacher.name)}`;
+            modalName.textContent = teacher.name + ' (Foto tidak tersedia)';
+        };
+    }, 100);
 }
 
-// Close modal
+// Modifikasi event listener untuk tombol close
 closeBtn.addEventListener('click', () => {
     modal.style.display = 'none';
+    // Reset modal saat ditutup
+    modalImg.src = '';
+    modalName.textContent = '';
+    modalImageContainer.scrollTop = 0;
 });
 
-// Close modal when clicking outside
+// Modifikasi event listener untuk click outside
 window.addEventListener('click', (e) => {
     if (e.target === modal) {
         modal.style.display = 'none';
+        // Reset modal saat ditutup
+        modalImg.src = '';
+        modalName.textContent = '';
+        modalImageContainer.scrollTop = 0;
     }
 });
 
